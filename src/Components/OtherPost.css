@@ -46,4 +46,23 @@
   .other-post-item-card button:hover {
     background-color: #0056b3;
   }
+
+  .circle {
+    width: 15px; /* Set the width of the circle */
+    height: 15px; /* Set the height of the circle */
+    border-radius: 50%; /* Make the element a circle by setting border-radius to 50% */
+    display: inline-block; /* Make sure the circle is displayed inline with the text */
+    margin-right: 5px; /* Add some space between the circle and the text */
+    border: 1px solid black; /* Add a 1px solid black border to the circle */
+  }
+  
+  
+  .approved {
+    background-color: green; /* Set the background color of the circle for approved status */
+  }
+  
+  .not-approved {
+    background-color: red; /* Set the background color of the circle for not-approved status */
+  }
+  
   

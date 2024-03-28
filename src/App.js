@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, { useState } from 'react'; 
 import './App.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Login from './Components/Login';
@@ -10,6 +10,7 @@ import UpdatePost from './Components/UpdatePost';
 import AdminPost from './Components/AdminPost';
 import OtherPost from './Components/OtherPost';
 import Welcome from './Components/Welcome';
+import AdminLogin from './Components/AdminLogin';
 
 function App() {
 
@@ -19,11 +20,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path ="/" exact element ={<Home />}></Route>
-          <Route path ="/login" exact element ={<Login />}></Route>
+          <Route path ="/login" exact element ={<Login  />}></Route>
           <Route path ="/register" exact element ={<Register />}></Route>
           <Route path ="/feeds" exact element ={<Feeds />}></Route>
-          <Route path ="/mypost" exact element ={<MyPost />}></Route>
-          <Route path ="/mypost/updatepost" exact element ={<UpdatePost />}></Route>
+          <Route path ="/mypost" exact element ={<MyPost  />}></Route>
+          <Route path="/UpdatePost/:postId" element={<UpdatePost />} />
+          <Route path ="/adminlogin" exact element ={<AdminLogin />}></Route>
           <Route path ="/adminpost" exact element ={<AdminPost />}></Route>
           <Route path ="/otherpost" exact element ={<OtherPost />}></Route>
         </Routes>

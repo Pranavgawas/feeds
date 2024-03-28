@@ -8,21 +8,24 @@ function Login() {
   const [error, setError] = useState('');
   const [userId, setUserId] = useState(null);
 
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  const fetchUser = async () => {
+  const fetchUserId = async (username) => {
     try {
-      const response = await fetch('http://localhost:8080/api/current-user');
+      const response = await fetch(`http://localhost:8080/api/user/getuserid/${username}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
       if (!response.ok) {
-        throw new Error('Failed to fetch user');
+        throw new Error('Failed to fetch user ID');
       }
       const data = await response.json();
       setUserId(data);
-      console.log(data);
+      localStorage.setItem('userId', data);
+      console.log(data); // Log the user ID to the console
     } catch (error) {
-      console.error(error);
+      console.error('Failed to fetch user ID:', error.message);
+      setError('Failed to fetch user ID');
     }
   };
 
@@ -41,12 +44,14 @@ function Login() {
       const isValidUser = await response.json();
       if (isValidUser) {
         setError('');
+        localStorage.setItem('username', username);
+        await fetchUserId(username);
         navigate('/Feeds');
       } else {
-        setError('Invalid username or password');
+        setError('Invalid username or password / you maybe Admin');
       }
     } catch (error) {
-      console.error('An error occurred:', error);
+      console.error('Failed to login:', error.message);
       setError('Failed to login');
     }
   };
