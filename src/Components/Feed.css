@@ -1,0 +1,49 @@
+.feed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .feed-card {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feed-card h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .feed-card label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .feed-card input,
+  .feed-card select,
+  .feed-card button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  .feed-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .feed-card button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,49 @@
+.post-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+  }
+  
+  .post-item-card {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-item-card h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .post-item-card label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .post-item-card input,
+  .post-item-card select,
+  .post-item-card button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  .post-item-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .post-item-card button:hover {
+    background-color: #0056b3;
+  }
+  

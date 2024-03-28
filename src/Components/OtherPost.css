@@ -1,0 +1,49 @@
+.other-post-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+  }
+  
+  .other-post-item-card {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .other-post-item-card h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .other-post-item-card label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .other-post-item-card input,
+  .other-post-item-card select,
+  .other-post-item-card button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  
+  .other-post-item-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .other-post-item-card button:hover {
+    background-color: #0056b3;
+  }
+  
