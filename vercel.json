@@ -1,5 +1,6 @@
 {
-  "buildCommand": "npm ci --legacy-peer-deps || npm install --legacy-peer-deps",
+  "buildCommand": "npm ci --legacy-peer-deps && npm run build || (npm install --legacy-peer-deps && npm run build)",
+  "outputDirectory": "build",
   "rewrites": [
     {
       "source": "/(.*)",
