@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/firebase-feed-app/node_modules
 /.pnp
 .pnp.js
 
