@@ -1,49 +1,170 @@
-.Update-Post {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.update-post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.update-post-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  .Update-post-Cards {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .Update-post-Cards h2 {
-    margin-bottom: 20px;
-    text-align: center;
+}
+
+.update-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.update-post-card h2 {
+  margin-bottom: 8px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.update-subtitle {
+  color: #718096;
+  font-size: 14px;
+  margin: 0;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 16px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: vertical;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-control:disabled {
+  background-color: #f7fafc;
+  cursor: not-allowed;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-outline-secondary {
+  background: white;
+  color: #718096;
+  border: 2px solid #e2e8f0;
+}
+
+.btn-outline-secondary:hover:not(:disabled) {
+  background: #f7fafc;
+  color: #4a5568;
+  border-color: #cbd5e0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.15em;
+}
+
+@media (max-width: 768px) {
+  .update-post-container {
+    padding: 12px;
   }
-  
-  .Update-post-Cards label {
-    display: block;
-    margin-bottom: 5px;
+
+  .update-post-card {
+    padding: 30px 20px;
   }
-  
-  .Update-post-Cards input,
-  .Update-post-Cards select,
-  .Update-post-Cards button {
+
+  .update-post-card h2 {
+    font-size: 24px;
+  }
+
+  .button-group {
+    flex-direction: column-reverse;
+  }
+
+  .button-group .btn {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
+    justify-content: center;
   }
-  
-  .Update-post-Cards button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .Update-post-Cards button:hover {
-    background-color: #0056b3;
-  }
-  
+}

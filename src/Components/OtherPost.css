@@ -1,68 +1,207 @@
+.other-post-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.other-post-header {
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.other-post-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0;
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  gap: 16px;
+}
+
+.loading-spinner p {
+  color: #718096;
+  font-size: 16px;
+}
+
+.no-posts {
+  max-width: 500px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 60px 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.no-posts svg {
+  color: #cbd5e0;
+  margin-bottom: 24px;
+}
+
+.no-posts h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 12px;
+}
+
+.no-posts p {
+  color: #718096;
+  margin-bottom: 24px;
+}
+
+.posts-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
 .other-post-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30vh;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .other-post-item-card {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .other-post-item-card h2 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .other-post-item-card label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .other-post-item-card input,
-  .other-post-item-card select,
-  .other-post-item-card button {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-  }
-  
-  .other-post-item-card button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .other-post-item-card button:hover {
-    background-color: #0056b3;
+}
+
+.other-post-item-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.other-post-item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f7fafc;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.author-info {
+  flex: 1;
+}
+
+.author-info h4 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.post-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #718096;
+  font-size: 13px;
+  margin: 0;
+}
+
+.post-time svg {
+  flex-shrink: 0;
+}
+
+.post-content {
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.post-content p {
+  color: #2d3748;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.post-footer {
+  padding-top: 16px;
+  border-top: 2px solid #f7fafc;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-approved {
+  background-color: #c6f6d5;
+  color: #22543d;
+}
+
+@media (max-width: 768px) {
+  .other-post-container {
+    padding: 12px;
   }
 
-  .circle {
-    width: 15px; /* Set the width of the circle */
-    height: 15px; /* Set the height of the circle */
-    border-radius: 50%; /* Make the element a circle by setting border-radius to 50% */
-    display: inline-block; /* Make sure the circle is displayed inline with the text */
-    margin-right: 5px; /* Add some space between the circle and the text */
-    border: 1px solid black; /* Add a 1px solid black border to the circle */
+  .other-post-header {
+    flex-direction: column;
+    align-items: stretch;
   }
-  
-  
-  .approved {
-    background-color: green; /* Set the background color of the circle for approved status */
+
+  .other-post-header h1 {
+    font-size: 24px;
+    text-align: center;
   }
-  
-  .not-approved {
-    background-color: red; /* Set the background color of the circle for not-approved status */
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
-  
-  
+
+  .no-posts {
+    padding: 40px 24px;
+  }
+}

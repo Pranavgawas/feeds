@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React from 'react'; 
 import './App.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Login from './Components/Login';
@@ -11,13 +11,14 @@ import AdminPost from './Components/AdminPost';
 import OtherPost from './Components/OtherPost';
 import Welcome from './Components/Welcome';
 import AdminLogin from './Components/AdminLogin';
+import SetupAdmin from './Components/SetupAdmin';
 
 function App() {
 
   return (
     <div className="App">
-      <Welcome />
       <BrowserRouter>
+        <Welcome />
         <Routes>
           <Route path ="/" exact element ={<Home />}></Route>
           <Route path ="/login" exact element ={<Login  />}></Route>
@@ -28,6 +29,7 @@ function App() {
           <Route path ="/adminlogin" exact element ={<AdminLogin />}></Route>
           <Route path ="/adminpost" exact element ={<AdminPost />}></Route>
           <Route path ="/otherpost" exact element ={<OtherPost />}></Route>
+          <Route path ="/setup-admin" exact element ={<SetupAdmin />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
