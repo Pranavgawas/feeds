@@ -1,0 +1,67 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is admin
+    function isAdmin() {
+      return request.auth != null && 
+             exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true;
+    }
+    
+    // Helper function to check if user is the owner
+    function isOwner(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Posts collection rules
+    match /posts/{postId} {
+      // All authenticated users can read approved posts
+      // Users can read their own posts regardless of status
+      // Admins can read all posts
+      allow read: if request.auth != null && 
+                     (resource.data.status == 'approved' || 
+                      isOwner(resource.data.userId) || 
+                      isAdmin());
+      
+      // Authenticated users can create posts (will be set to 'pending' status)
+      allow create: if request.auth != null && 
+                       request.resource.data.userId == request.auth.uid &&
+                       request.resource.data.status == 'pending';
+      
+      // Users can update their own posts (but cannot change status)
+      // Admins can update any post (including status for approval)
+      allow update: if request.auth != null && 
+                       (isOwner(resource.data.userId) && 
+                        request.resource.data.status == resource.data.status) || 
+                       isAdmin();
+      
+      // Users can delete their own posts
+      // Admins can delete any post
+      allow delete: if request.auth != null && 
+                       (isOwner(resource.data.userId) || isAdmin());
+    }
+    
+    // Users collection rules
+    match /users/{userId} {
+      // Users can read their own data
+      // Admins can read all user data
+      allow read: if request.auth != null && 
+                     (request.auth.uid == userId || isAdmin());
+      
+      // Users can create their own profile
+      allow create: if request.auth != null && 
+                       request.auth.uid == userId &&
+                       request.resource.data.isAdmin == false; // Cannot set themselves as admin
+      
+      // Users can update their own profile (but cannot change isAdmin status)
+      allow update: if request.auth != null && 
+                       request.auth.uid == userId &&
+                       request.resource.data.isAdmin == resource.data.isAdmin;
+      
+      // No one can delete user profiles (implement this via Cloud Functions if needed)
+      allow delete: if false;
+    }
+  }
+}
